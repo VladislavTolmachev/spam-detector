@@ -7,7 +7,7 @@ I built the first version while learning ML, over roughly two weeks of evening w
 ## What the project explores
 
 - Text preprocessing with regular expressions
-- TF-IDF features, including unigrams and bigrams
+- TF-IDF features, including unigrams, bigrams, and trigrams
 - Logistic Regression for binary classification
 - Class imbalance and a simple keyword-based baseline
 - Precision, recall, F1, Average Precision, and threshold selection
