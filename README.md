@@ -38,9 +38,9 @@ Open `model_trainer.ipynb` in Jupyter and run its cells in order. The notebook c
 
 ## Important limitations
 
-- The original notebook's threshold-selection workflow used test predictions to choose a threshold. That means the reported test metrics are not an unbiased final evaluation. A proper revision should split data into train, validation, and test sets, select the threshold on validation data, and evaluate once on the untouched test set.
-- Calibration should be assessed with appropriate metrics/plots rather than assumed from using a calibration class.
-- The original notebook contains exploratory experiments and should not be described as production-ready.
+- The training notebook now uses a stratified 60/20/20 train/validation/test split. The decision threshold is selected on validation data, and the test split is used for final evaluation after that threshold is fixed.
+- Calibration uses sigmoid calibration around the full text Pipeline. Its quality has not yet been independently verified with Brier score, log loss, or a reliability diagram.
+- The notebook is an educational experiment and has not been validated for production use. The revised workflow has not yet been executed end-to-end in a clean environment.
 - No deployment, API service, monitoring, or automated retraining pipeline is included.
 
 ## Learning notes
@@ -50,9 +50,9 @@ See [the Russian project walkthrough](docs/PROJECT_WALKTHROUGH_RU.md) for explan
 ## Possible next improvements
 
 1. Separate training, evaluation, and prediction into small Python modules.
-2. Add train/validation/test evaluation and threshold selection without test leakage.
-3. Compare the keyword baseline with a simple TF-IDF + Logistic Regression baseline.
-4. Add calibration evaluation and a small set of tests.
+2. Run the updated training workflow end-to-end in a clean environment and fix any runtime issues.
+3. Add calibration evaluation (Brier score, log loss, reliability diagram) and a small set of tests.
+4. Compare alternative models and calibration methods using validation data only.
 5. Document reproducible dataset setup and tested dependency versions.
 
 ## License and attribution
