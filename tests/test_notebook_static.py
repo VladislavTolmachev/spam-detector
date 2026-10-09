@@ -42,3 +42,25 @@ def test_notebooks_have_no_saved_code_outputs():
             if cell.get("cell_type") == "code":
                 assert cell.get("execution_count") is None
                 assert cell.get("outputs", []) == []
+
+
+
+def test_threshold_helper_enforces_recall_constraint_and_validates_inputs():
+    source = notebook_source("model_trainer.ipynb")
+    helper_start = source.index("def find_optimal_threshold_for_recall")
+    helper_end = source.index("\ndef plot_precision_recall_tradeoff", helper_start)
+    helper = source[helper_start:helper_end]
+    assert "if not 0.0 <= target_recall <= 1.0" in helper
+    assert "len(y_true) != len(y_proba)" in helper
+    assert "recalls[:-1] >= target_recall" in helper
+    assert "best_indices[-1]" in helper
+    assert "np.argmin(np.abs(recalls - target_recall))" not in helper
+
+
+def test_training_notebook_does_not_claim_production_readiness_or_store_secrets():
+    source = notebook_source("model_trainer.ipynb")
+    assert "Production ready" not in source
+    assert "ADMIN_SPAM_2024" not in source
+    notebook = json.loads((ROOT / "model_trainer.ipynb").read_text(encoding="utf-8"))
+    serialized = json.dumps(notebook, ensure_ascii=False)
+    assert "ADMIN_SPAM_2024" not in serialized
