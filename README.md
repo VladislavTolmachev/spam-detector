@@ -15,9 +15,8 @@ I built the first version while learning ML, over roughly two weeks of evening w
 
 ## Dataset
 
-The notebooks use the UCI SMS Spam Collection dataset (5,572 messages before duplicate handling). The dataset is not committed to this repository. Obtain it from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) and place the extracted `SMSSpamCollection` file in the project root, unless you update the notebook's data path.
+The notebooks use the UCI SMS Spam Collection dataset (5,572 messages before duplicate handling). If `SMSSpamCollection` is present in the repository root, the training notebook reads it from there. Otherwise, obtain it from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) and place the extracted file in the project root. Check the dataset's terms and attribution requirements before redistributing it.
 
-Please check the dataset's terms and attribution requirements before redistributing it.
 
 ## Getting started
 
