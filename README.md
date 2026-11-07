@@ -1,6 +1,6 @@
 # SMS Spam Detection
 
-An educational machine-learning project for binary classification of SMS messages as `spam` or `ham`.
+An educational SMS text-classification project for learning and demonstrating a classical machine-learning workflow. It is **not production-ready** and is not presented as a deployed spam-detection service.
 
 I built the first version while learning ML, over roughly two weeks of evening work. The project explores a classic text-classification workflow rather than claiming to be a production service.
 
