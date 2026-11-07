@@ -56,4 +56,4 @@ See [the Russian project walkthrough](docs/PROJECT_WALKTHROUGH_RU.md) for explan
 
 ## License and attribution
 
-Check the dataset's own terms and add an explicit project license before reusing or redistributing the code.
+The original project code and documentation are available under the MIT License. The UCI SMS Spam Collection dataset is **not covered** by this project license; it remains subject to the dataset provider's own terms and attribution requirements. See the [UCI dataset page](https://archive.ics.uci.edu/dataset/228/sms+spam+collection) before downloading or redistributing the data.
